@@ -3,16 +3,42 @@ body {
    background-color: #cccccc;
 }
 
+.menubar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: justify;
+  text-decoration: none;
+}
+.menubar{
+  background-color: #333;
+  text-align: justify;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1
+}
+
+.menubar:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
 .post-list{
   background-color: rgb(173, 175, 169);
   border-style: solid;
   border-width: 2px;
+  z-index: -1
 }
 
 .header{
+  text-align: center;
   background-color: rgb(173, 175, 169);
   border-style: solid;
   border-width: 2px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .post{
@@ -20,4 +46,18 @@ body {
   padding: 20px;
   border-style: solid;
   border-width: 1px;
+  margin: 20px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 900px) {
+  .menubar{
+    bottom: 0;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .menubar{
+    top: 0;
+  }
 }
