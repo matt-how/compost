@@ -1,4 +1,4 @@
-var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc commodo sodales est, eu dapibus lorem ullamcorper quis. Sed tempus ultrices urna. Duis et tincidunt erat. Ut mattis egestas libero a efficitur. Vestibulum at quam elit. Vivamus a interdum tellus. In pretium sit amet elit ac placerat. Fusce odio lorem, dignissim vel est vitae, volutpat varius ex. Etiam eget lacus vel felis iaculis lobortis eget et nunc. Mauris at lorem id ipsum efficitur facilisis quis et purus."
+var text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient."
 window.onscroll = function() {loadContent()};
 
 function loadContent() {
