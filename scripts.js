@@ -1,17 +1,16 @@
-var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc commodo sodales est, eu dapibus lorem ullamcorper quis. Sed tempus ultrices urna. Duis et tincidunt erat. Ut mattis egestas libero a efficitur. Vestibulum at quam elit. Vivamus a interdum tellus. In pretium sit amet elit ac placerat. Fusce odio lorem, dignissim vel est vitae, volutpat varius ex. Etiam eget lacus vel felis iaculis lobortis eget et nunc. Mauris at lorem id ipsum efficitur facilisis quis et purus."
-window.onscroll = function() {myFunction()};
+var text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient."
+window.onscroll = function() {loadContent()};
 
-function myFunction() {
-  var h = document.documentElement,
-  b = document.body,
-  st = 'scrollTop',
-  sh = 'scrollHeight';
-  var percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-  // if the scroll is more than 75% from the top, load more content.
-  if(percent > 0.75) {
-    var divv = document.createElement("LI");
+function loadContent() {
+  //alert("Pressed!");
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) {
+        // you're at the bottom of the page
+    //alert("load more")
+    var listNode = document.createElement("LI");
+    listNode.classList.add("post")
+
     var textnode = document.createTextNode(text);
-    divv.appendChild(textnode);
-    document.getElementById('post-list').appendChild(divv);
+    listNode.appendChild(textnode);
+    document.getElementById("post-list").appendChild(listNode);
   }
 }
