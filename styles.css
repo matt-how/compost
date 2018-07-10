@@ -1,7 +1,11 @@
 body {
    background-image: url("BGPale.png");
    background-color: #cccccc;
-    background-size: 20%;
+   background-size: 20%;
+}
+
+ul{
+  list-style-type: none;
 }
 
 .post-list{
@@ -11,7 +15,7 @@ body {
 
 .header{
   background-color: rgb(255,255,255);
-  
+
   box-shadow: 5px 7px #8CFF9F;
 }
 
