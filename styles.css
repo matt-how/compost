@@ -20,8 +20,18 @@ ul{
   background-color: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 5px;
-  margin-bottom: 3%;
+  margin-bottom: 10px;
   box-shadow: 2px 2px 3px #a3a3a3;
+  height: 185px;
+}
+.text{
+    float: left;
+}
+.side{
+    border-left: 1px solid lime;
+    float: left;
+    height: 145px;
+    
 }
 @media only screen and (max-width: 600px) {
     body {
