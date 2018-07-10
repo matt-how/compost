@@ -8,19 +8,26 @@ ul{
   list-style-type: none;
 }
 
-.post-list{
-  background-color: rgb(255,255,255);
-    border-radius: 25px;
-}
-
 .header{
   background-color: rgb(255,255,255);
-
-  box-shadow: 5px 7px #8CFF9F;
+  box-shadow: 2px 2px 3px #a3a3a3;
 }
-
+.post-list{padding: 0;}
 .post{
   background-color: rgb(255, 255, 255);
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 5px;
+  margin-bottom: 3%;
+  box-shadow: 2px 2px 3px #a3a3a3;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: 60%;
+    }
+    .header{
+        display: none;
+    }
+    .post {
+        background-color: white;
+    }
 }
