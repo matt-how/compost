@@ -8,9 +8,18 @@ function loadContent() {
     //alert("load more")
     var listNode = document.createElement("LI");
     listNode.classList.add("post")
-
-    var textnode = document.createTextNode(text);
-    listNode.appendChild(textnode);
+    var divNode = document.createElement("DIV");
+    divNode.classList.add("col-10");
+    divNode.classList.add("text");
+    var textNode = document.createTextNode(text);
+    divNode.appendChild(textNode);
+    listNode.appendChild(divNode);
+    var sideDiv = document.createElement("DIV");
+    sideDiv.classList.add("col-2");
+    sideDiv.classList.add("side");
+    var testText = document.createTextNode("test");
+    sideDiv.appendChild(testText);
+    listNode.appendChild(sideDiv);
     document.getElementById("post-list").appendChild(listNode);
   }
 }
