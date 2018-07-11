@@ -14,28 +14,24 @@ window.onscroll = function() {infiniteScroll()};
 
 //keep track of how many posts have been loaded
 var postCount = 0;
+var maxPosts;
 
 function onPageLoad(){
   var i;
   for (i=0;i<7;i++){
-    //alert(i);
-    firebase.database().ref('posts/' + i).once('value').then(function(snapshot) {
-      document.getElementById("post-list").appendChild(returnNewPost(snapshot.val()));
-    });
-    //document.getElementById("post-list").appendChild(returnNewPost(loadPosts(i).val()));
+    loadNewPost();
   }
+  firebase.database().ref('posts').once('value').then(function(snapshot){
+    maxPosts = snapshot.numChildren();
+  });
 }
 
-/*function loadPosts(var postNum) {
-  var postsRef = firebase.database().ref('posts/' + postNum);
-  //alert(postsRef);
-  //var _this = this;
-  //return firebase.database().ref('posts/' + postNum).once('value').then(function(snapshot) {
-    //alert(snapshot.val());
-    //return(snapshot.val());
+function loadNewPost() {
+  firebase.database().ref('posts/' + postCount).once('value').then(function(snapshot) {
+    document.getElementById("post-list").appendChild(returnNewPost(snapshot.val()));
   });
-
-}*/
+  postCount++;
+}
 
 function returnNewPost(something){
   var listNode = document.createElement("LI");
@@ -77,9 +73,17 @@ function returnFakePost(){
 function infiniteScroll() {
   //alert("Pressed!");
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) {
-        // you're at the bottom of the page
-    //alert("load more")
-    var listNode = returnFakePost();
-    document.getElementById("post-list").appendChild(listNode);
+    // you're at the bottom of the page
+    /*firebase.database().ref('posts/' + i).once('value').then(function(snapshot) {
+      document.getElementById("post-list").appendChild(returnNewPost(snapshot.val()));
+    });
+    postCount++;*/
+
+    if (postCount >= maxPosts){
+      var listNode = returnFakePost();
+      document.getElementById("post-list").appendChild(listNode);
+    } else {
+      loadNewPost();
+    }
   }
 }
