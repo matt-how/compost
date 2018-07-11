@@ -1,14 +1,9 @@
 #Matt
--Integrate firebase
+-Make submit submit
 -Make user logins work (big step)
--Create actual post database
--Make home page load "real" posts
 -Add upvote / downvote buttons
 
 #Cameron
--Check into new branch again
--Work on the top of the page
--Create post creation screen
--Merge with master
 -CSS for login screen
 -CSS for upvote/downvote section of a post
+-make BG not fucking yuge

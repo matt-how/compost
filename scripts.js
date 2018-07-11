@@ -9,6 +9,9 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
 //when you scroll, check if you need to load more posts
 window.onscroll = function() {infiniteScroll()};
 
@@ -85,5 +88,10 @@ function infiniteScroll() {
     } else {
       loadNewPost();
     }
+  }
+if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
   }
 }
