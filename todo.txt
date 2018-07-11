@@ -12,3 +12,4 @@
 -Merge with master
 -CSS for login screen
 -CSS for upvote/downvote section of a post
+-make BG not fucking yuge

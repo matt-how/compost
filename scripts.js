@@ -1,6 +1,9 @@
 var text = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient."
 window.onscroll = function() {loadContent()};
 
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
 function loadContent() {
   //alert("Pressed!");
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) {
@@ -21,5 +24,10 @@ function loadContent() {
     sideDiv.appendChild(testText);
     listNode.appendChild(sideDiv);
     document.getElementById("post-list").appendChild(listNode);
+  }
+if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
   }
 }
