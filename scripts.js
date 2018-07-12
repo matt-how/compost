@@ -21,27 +21,34 @@ var maxPosts;
 
 function onPageLoad(){
   var i;
-
   firebase.database().ref('posts').once('value').then(function(snapshot){
     maxPosts = snapshot.numChildren();
+    for (i=0;i<3;i++){
+      loadNewPost();
+    }
   });
-  //for (i=0;i<7;i++){
-    loadNewPost();
-  //}
+
 }
 
 function loadNewPost() {
   /*firebase.database().ref('posts/' + postCount).once('value').then(function(snapshot) {
     document.getElementById("post-list").appendChild(returnNewPost(snapshot.val()));
-  });
-  postCount++;*/
-  var ref = firebase.database().ref('posts').orderByKey();
-  ref.once('value').then(function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-      document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score));
-      postCount++;
-    })
-  });
+  });*/
+  if(postCount<maxPosts){
+    postCount++;
+    var ref = firebase.database().ref('posts').orderByKey().limitToLast(postCount);
+    ref.once('value').then(function(snapshot){
+      snapshot.forEach(function(childSnapshot){
+        document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score));
+        //postCount++;
+        return true;
+      })
+    });
+  } else{
+    //alert("Post count: " + postCount + " - Max Posts: " + maxPosts);
+    //document.getElementById("post-list").appendChild(returnNewPost("This is a fake post. Nobody posts like that",0));
+  }
+
 }
 
 function returnNewPost(mainText, score){
@@ -62,35 +69,17 @@ function returnNewPost(mainText, score){
   return listNode;
 }
 
-function returnFakePost(){
-  var listNode = document.createElement("LI");
-  listNode.classList.add("post")
-  var divNode = document.createElement("DIV");
-  divNode.classList.add("col-10");
-  divNode.classList.add("text");
-  var textNode = document.createTextNode("This is a fake post. Nobody posts like that.");
-  divNode.appendChild(textNode);
-  listNode.appendChild(divNode);
-  var sideDiv = document.createElement("DIV");
-  sideDiv.classList.add("col-2");
-  sideDiv.classList.add("side");
-  var testText = document.createTextNode("0");
-  sideDiv.appendChild(testText);
-  listNode.appendChild(sideDiv);
-  return listNode;
-}
-
 
 function infiniteScroll() {
   //alert("Pressed!");
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) {
     // you're at the bottom of the page
-    if (postCount >= maxPosts){
-      var listNode = returnFakePost();
-      document.getElementById("post-list").appendChild(listNode);
-    } else {
+  //  if (postCount >= maxPosts){
+  //    var listNode = returnFakePost();
+    //  document.getElementById("post-list").appendChild(listNode);
+    //} else {
       loadNewPost();
-    }
+    //}
   }
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky")
