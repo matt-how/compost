@@ -1,6 +1,4 @@
 #Matt
--Order posts chronologically
--Make loading load a single post, rather than all at once
 -Add comment button
 -Add comments
 -Make user logins work (big step)
