@@ -23,7 +23,7 @@ function onPageLoad(){
   var i;
   firebase.database().ref('posts').once('value').then(function(snapshot){
     maxPosts = snapshot.numChildren();
-    for (i=0;i<3;i++){
+    for (i=0;i<4;i++){
       loadNewPost();
     }
   });
@@ -96,4 +96,8 @@ function submitPost(){
     comments: {}
   });
   document.getElementById("newPostText").value = "";
+  var ul = document.getElementById("post-list");
+  while(ul.firstChild) ul.removeChild(ul.firstChild);
+  postCount=0;
+  onPageLoad();
 }
