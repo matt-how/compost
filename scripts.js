@@ -21,19 +21,27 @@ var maxPosts;
 
 function onPageLoad(){
   var i;
-  for (i=0;i<7;i++){
-    loadNewPost();
-  }
+
   firebase.database().ref('posts').once('value').then(function(snapshot){
     maxPosts = snapshot.numChildren();
   });
+  //for (i=0;i<7;i++){
+    loadNewPost();
+  //}
 }
 
 function loadNewPost() {
-  firebase.database().ref('posts/' + postCount).once('value').then(function(snapshot) {
+  /*firebase.database().ref('posts/' + postCount).once('value').then(function(snapshot) {
     document.getElementById("post-list").appendChild(returnNewPost(snapshot.val()));
   });
-  postCount++;
+  postCount++;*/
+  var ref = firebase.database().ref('posts').orderByKey();
+  ref.once('value').then(function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+      document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content));
+      postCount++;
+    })
+  });
 }
 
 function returnNewPost(something){
@@ -77,11 +85,6 @@ function infiniteScroll() {
   //alert("Pressed!");
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) {
     // you're at the bottom of the page
-    /*firebase.database().ref('posts/' + i).once('value').then(function(snapshot) {
-      document.getElementById("post-list").appendChild(returnNewPost(snapshot.val()));
-    });
-    postCount++;*/
-
     if (postCount >= maxPosts){
       var listNode = returnFakePost();
       document.getElementById("post-list").appendChild(listNode);
@@ -89,9 +92,17 @@ function infiniteScroll() {
       loadNewPost();
     }
   }
-if (window.pageYOffset >= sticky) {
+  if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky")
   } else {
     navbar.classList.remove("sticky");
   }
+}
+
+function submitPost(){
+  var x = document.getElementById("newPostText").value;
+  firebase.database().ref('posts').push({
+    content: x
+  });
+  document.getElementById("newPostText").value = "";
 }
