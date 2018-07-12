@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="styles.css">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="theme-color" content="#ffffff">
 <title>Compost</title>
@@ -17,8 +17,8 @@
 <body onload="onPageLoad()">
 <div id="navbar">
     <div class="row justify-content-center">
-    <a class="col-6 active" href="javascript:void(0)">n e w</a>
-    <a class="col-6" href="javascript:void(0)">t o p</a>
+        <a class="col-6 active" href="javascript:void(0)">n e w</a>
+        <a class="col-6 top" href="javascript:void(0)">t o p</a>
     </div>
 </div>
 <div class="content">
@@ -29,10 +29,13 @@
                     <textarea class="form-control" rows="5" id="newPostText" placeholder="Make a new post..."></textarea>
                     <button class="button submit">submit</button>
                 </div>
+                <div class="score-card">
+                    1 4 6 7
+                    <img class="score-image" src="favicons/favicon-32x32.png">
+                </div>
             </div>
             <div class="col-lg-9 col-12">
-                <ul class="post-list" id="post-list">
-                    
+                <ul class="post-list" id="post-list">                  
                 </ul>
             </div>
         </div>

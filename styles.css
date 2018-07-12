@@ -1,12 +1,12 @@
 body {
-   background-image: url("BGPale.png");
-   background-color: #cccccc;
-   background-size: 20%;
+    background-image: url("Backgrounds/BGPale.png");
+    background-color: #a3ffc6;
+    background-size: 20%;
     overflow-x: hidden;
 }
 
 ul{
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .post-list{
@@ -20,22 +20,22 @@ ul{
 }
 #navbar a {
     transition: background-color 0.3s ease;
-  float: center;
-  display: block;
-  color: #b5b5b5;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    float: left;
+    display: block;
+    color: #b5b5b5;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 #navbar a:hover {
   background-color: #42f486;
   color: white;
 }
 #navbar a.active {
-  background-color: #FFFFFF;
+    background-color: #FFFFFF;
     border-bottom: 2px solid #42f486;
-  color: #42f486;
+    color: #42f486;
 }
 .sticky {
   position: fixed;
@@ -48,6 +48,9 @@ ul{
 }
 .sticky + .content {
   padding-top: 80px;
+}
+.container-fluid {
+    padding: 0px;
 }
 .button {
     background-color: #42f486;
@@ -72,6 +75,21 @@ ul{
 .submit:hover{
     background-color: #3bdb78;
     color: white;
+}
+.score-card {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 50px;
+    box-shadow: 2px 2px 3px #dddddd;
+    height: 85px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 40px;
+    color: lightgray;
+}
+.score-image{
+    padding-left: 20px;
 }
 .post{
     background-color: rgb(255, 255, 255);
@@ -122,5 +140,9 @@ ul{
     }
     .form-group{
         display: none;
+    }
+    .score-card{
+        margin-top: 0px;
+        margin-bottom: 20px;
     }
 }
