@@ -38,25 +38,25 @@ function loadNewPost() {
   var ref = firebase.database().ref('posts').orderByKey();
   ref.once('value').then(function(snapshot){
     snapshot.forEach(function(childSnapshot){
-      document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content));
+      document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score));
       postCount++;
     })
   });
 }
 
-function returnNewPost(something){
+function returnNewPost(mainText, score){
   var listNode = document.createElement("LI");
   listNode.classList.add("post")
   var divNode = document.createElement("DIV");
   divNode.classList.add("col-10");
   divNode.classList.add("text");
-  var textNode = document.createTextNode(something);
+  var textNode = document.createTextNode(mainText);
   divNode.appendChild(textNode);
   listNode.appendChild(divNode);
   var sideDiv = document.createElement("DIV");
   sideDiv.classList.add("col-2");
   sideDiv.classList.add("side");
-  var testText = document.createTextNode("test");
+  var testText = document.createTextNode(score);
   sideDiv.appendChild(testText);
   listNode.appendChild(sideDiv);
   return listNode;
@@ -102,7 +102,9 @@ function infiniteScroll() {
 function submitPost(){
   var x = document.getElementById("newPostText").value;
   firebase.database().ref('posts').push({
-    content: x
+    content: x,
+    score: 0,
+    comments: {}
   });
   document.getElementById("newPostText").value = "";
 }
