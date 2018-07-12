@@ -18,16 +18,29 @@ window.onscroll = function() {infiniteScroll()};
 //keep track of how many posts have been loaded
 var postCount = 0;
 var maxPosts;
+var mode=0;
+var topPostsLoaded=0;
 
-function onPageLoad(){
+function onPageLoad(newMode){
   var i;
+  var ul = document.getElementById("post-list");
+  while(ul.firstChild) ul.removeChild(ul.firstChild);
+  if(newMode<0||newMode>1){
+    newMode=0;
+  }
+  postCount=0;
+  mode=newMode;
   firebase.database().ref('posts').once('value').then(function(snapshot){
     maxPosts = snapshot.numChildren();
-    for (i=0;i<4;i++){
+    if(mode==0){
+      for (i=0;i<4;i++){
+        loadNewPost();
+      }
+    } else {
       loadNewPost();
     }
-  });
 
+  });
 }
 
 function loadNewPost() {
@@ -36,12 +49,20 @@ function loadNewPost() {
   });*/
   if(postCount<maxPosts){
     postCount++;
-    var ref = firebase.database().ref('posts').orderByKey().limitToLast(postCount);
+    if(mode==0){
+      var ref = firebase.database().ref('posts').orderByKey().limitToLast(postCount);
+    } else {
+      var numToLoad =25;
+      if (maxPosts<25){
+        numToLoad = maxPosts;
+      }
+      var ref = firebase.database().ref('posts').orderByChild('score').limitToLast(numToLoad);
+    }
     ref.once('value').then(function(snapshot){
       snapshot.forEach(function(childSnapshot){
-        document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score));
-        //postCount++;
-        return true;
+        document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score * -1));
+          if (mode==0) return true;
+
       })
     });
   } else{
@@ -72,7 +93,7 @@ function returnNewPost(mainText, score){
 
 function infiniteScroll() {
   //alert("Pressed!");
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) {
+  if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight-(document.body.offsetHeight/5)) && mode==0) {
     // you're at the bottom of the page
   //  if (postCount >= maxPosts){
   //    var listNode = returnFakePost();
@@ -96,8 +117,5 @@ function submitPost(){
     comments: {}
   });
   document.getElementById("newPostText").value = "";
-  var ul = document.getElementById("post-list");
-  while(ul.firstChild) ul.removeChild(ul.firstChild);
-  postCount=0;
-  onPageLoad();
+  onPageLoad(mode);
 }
