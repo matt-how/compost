@@ -117,5 +117,5 @@ function submitPost(){
     comments: {}
   });
   document.getElementById("newPostText").value = "";
-  onPageLoad(mode);
+  onPageLoad(1);
 }
