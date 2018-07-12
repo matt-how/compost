@@ -1,9 +1,10 @@
 #Matt
--Make submit submit
+-Order posts chronologically
 -Make user logins work (big step)
 -Add upvote / downvote buttons
 
 #Cameron
 -CSS for login screen
 -CSS for upvote/downvote section of a post
+-Fix tablet view
 -make BG not fucking yuge
