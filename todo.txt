@@ -1,10 +1,14 @@
 #Matt
 -Order posts chronologically
+-Make loading load a single post, rather than all at once
+-Add comment button
+-Add comments
 -Make user logins work (big step)
--Add upvote / downvote buttons
+-Add functionality to upvote/downvote buttons
+-Make the first posts coded in HTML, and then populate them on database load
 
 #Cameron
 -CSS for login screen
--CSS for upvote/downvote section of a post
+-Add upvote/downvote section of a post
 -Fix tablet view
 -make BG not fucking yuge
