@@ -74,7 +74,7 @@ function returnFakePost(){
   var sideDiv = document.createElement("DIV");
   sideDiv.classList.add("col-2");
   sideDiv.classList.add("side");
-  var testText = document.createTextNode("test");
+  var testText = document.createTextNode("0");
   sideDiv.appendChild(testText);
   listNode.appendChild(sideDiv);
   return listNode;
