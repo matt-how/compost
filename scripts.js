@@ -120,5 +120,9 @@ function submitPost(){
     comments: {}
   });
   document.getElementById("newPostText").value = "";
-  onPageLoad(1);
+  if(mode==1){
+    document.getElementById("newMenuOption").classList.add("active");
+    document.getElementById("topMenuOption").classList.remove("active");
+  }
+  onPageLoad(0);
 }
