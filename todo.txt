@@ -1,15 +1,15 @@
 #Matt
+-Make the first posts coded in HTML, and then populate them on database load
 -Add comment button
 -Add comments
 -Make user logins work (big step)
 -Add functionality to upvote/downvote buttons
--Make the first posts coded in HTML, and then populate them on database load
 -Background poll for postcount so "new" tab can count
 
 #Cameron
+-Make post submission on small screens
 -CSS for login screen
 -Add upvote/downvote section of a post
--Fix tablet view
 -make BG not fucking yuge
 
 

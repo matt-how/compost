@@ -73,8 +73,8 @@ ul{list-style: none; padding-left: 0px;}
     border-radius: 5px;
 }
 .submit {
-    background-color: #42f486; 
-    color: white; 
+    background-color: #42f486;
+    color: white;
 }
 .submit:hover{
     background-color: #3bdb78;
@@ -94,6 +94,13 @@ ul{list-style: none; padding-left: 0px;}
 }
 .score-image{
     padding-left: 20px;
+}
+.post-score {
+    color: #b5b5b5;
+    text-align: center;
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 17px;
 }
 .post{
     background-color: rgb(255, 255, 255);
@@ -125,7 +132,7 @@ ul{list-style: none; padding-left: 0px;}
     border-left: 1px solid #42f486;
     float: left;
     height: 145px;
-    
+
 }
 .form-control:focus {
   border-color: #42f486;

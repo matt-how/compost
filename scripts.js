@@ -84,8 +84,42 @@ function returnNewPost(mainText, score){
   var sideDiv = document.createElement("DIV");
   sideDiv.classList.add("col-2");
   sideDiv.classList.add("side");
-  var testText = document.createTextNode(score);
-  sideDiv.appendChild(testText);
+  var smallDivOne = document.createElement("DIV");
+  smallDivOne.classList.add("row");
+  smallDivOne.classList.add("justify-content-center");
+  var upvoteLink = document.createElement("A");
+  upvoteLink.href = "javascript:upvote()";
+  var upvoteImage = document.createElement("IMG");
+  upvoteImage.src = "upArrow.png";
+  upvoteImage.width = 50;
+  upvoteImage.height = 50;
+  upvoteLink.appendChild(upvoteImage);
+  smallDivOne.appendChild(upvoteLink);
+  sideDiv.appendChild(smallDivOne);
+  var smallDivTwo = document.createElement("DIV");
+  smallDivTwo.classList.add("row");
+  smallDivTwo.classList.add("justify-content-center");
+  var scoreDiv = document.createElement("DIV");
+  scoreDiv.classList.add("post-score");
+  var scoreText = document.createTextNode(score);
+  scoreDiv.appendChild(scoreText);
+  smallDivTwo.appendChild(scoreDiv);
+  sideDiv.appendChild(smallDivTwo);
+
+  var smallDivThree = document.createElement("DIV");
+  smallDivThree.classList.add("row");
+  smallDivThree.classList.add("justify-content-center");
+  var downvoteLink = document.createElement("A");
+  downvoteLink.href = "javascript:downvote()";
+  var downvoteImage = document.createElement("IMG");
+  downvoteImage.src = "downArrow.png";
+  downvoteImage.width = 50;
+  downvoteImage.height = 50;
+  downvoteLink.appendChild(downvoteImage);
+  smallDivThree.appendChild(downvoteLink);
+  sideDiv.appendChild(smallDivThree);
+
+
   listNode.appendChild(sideDiv);
   //var buttonNode = document.createElement("BUTTON");
   //buttonNode.appendChild(document.createTextNode("View Comments"));
