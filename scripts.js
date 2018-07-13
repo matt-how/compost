@@ -87,6 +87,9 @@ function returnNewPost(mainText, score){
   var testText = document.createTextNode(score);
   sideDiv.appendChild(testText);
   listNode.appendChild(sideDiv);
+  //var buttonNode = document.createElement("BUTTON");
+  //buttonNode.appendChild(document.createTextNode("View Comments"));
+  //listNode.appendChild(buttonNode);
   return listNode;
 }
 

@@ -4,6 +4,7 @@
 -Make user logins work (big step)
 -Add functionality to upvote/downvote buttons
 -Make the first posts coded in HTML, and then populate them on database load
+-Background poll for postcount so "new" tab can count
 
 #Cameron
 -CSS for login screen
