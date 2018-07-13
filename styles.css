@@ -34,7 +34,7 @@ ul{
   background-color: #42f486;
   color: white;
 }
-.active {
+#navbar a.active {
     background-color: #FFFFFF;
     border-bottom: 2px solid #42f486;
     text-decoration-color: #42f486;
