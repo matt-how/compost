@@ -13,13 +13,25 @@
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="theme-color" content="#ffffff">
 <title>Compost</title>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('ul li a').click(function(){
+                $('li a').removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
+
 </head>
 <body onload="onPageLoad(0)">
 <div id="navbar">
-    <div class="row justify-content-center">
-        <a class="col-6 active" onclick="onPageLoad(0)">n e w</a>
-        <a class="col-6" onclick="onPageLoad(1)">t o p</a>
-    </div>
+
+        <ul>
+        <li><a href="#" class="col-6 active" onclick="onPageLoad(0)">n e w</a></li>
+            <li><a href="#" class="col-6" onclick="onPageLoad(1)">t o p</a></li>
+            </ul>
+
 </div>
 <div class="content">
     <div class="container-fluid">

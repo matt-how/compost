@@ -21,6 +21,8 @@ ul{
 #navbar a {
     transition: background-color 0.3s ease;
     float: left;
+    margin-left: 0px;
+    list-style: none;
     display: block;
     color: #b5b5b5;
     text-align: center;
@@ -32,11 +34,13 @@ ul{
   background-color: #42f486;
   color: white;
 }
-#navbar a.active {
+.active {
     background-color: #FFFFFF;
     border-bottom: 2px solid #42f486;
+    text-decoration-color: #42f486;
     color: #42f486;
 }
+ul{list-style: none; padding-left: 0px;}
 .sticky {
   position: fixed;
   top: 0;
