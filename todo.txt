@@ -11,3 +11,6 @@
 -Add upvote/downvote section of a post
 -Fix tablet view
 -make BG not fucking yuge
+
+
+-REMIND CHRIS TO GET ME ON THE WELCOME WEEK BOARD
