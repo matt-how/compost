@@ -91,8 +91,8 @@ function returnNewPost(mainText, score){
   upvoteLink.href = "javascript:upvote()";
   var upvoteImage = document.createElement("IMG");
   upvoteImage.src = "upArrow.png";
-  upvoteImage.width = 50;
-  upvoteImage.height = 50;
+  upvoteImage.width = 40;
+  upvoteImage.height = 40;
   upvoteLink.appendChild(upvoteImage);
   smallDivOne.appendChild(upvoteLink);
   sideDiv.appendChild(smallDivOne);
@@ -113,8 +113,8 @@ function returnNewPost(mainText, score){
   downvoteLink.href = "javascript:downvote()";
   var downvoteImage = document.createElement("IMG");
   downvoteImage.src = "downArrow.png";
-  downvoteImage.width = 50;
-  downvoteImage.height = 50;
+  downvoteImage.width = 40;
+  downvoteImage.height = 40;
   downvoteLink.appendChild(downvoteImage);
   smallDivThree.appendChild(downvoteLink);
   sideDiv.appendChild(smallDivThree);
