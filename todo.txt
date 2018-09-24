@@ -11,6 +11,3 @@
 -CSS for login screen
 -Add upvote/downvote section of a post
 -make BG not fucking yuge
-
-
--REMIND CHRIS TO GET ME ON THE WELCOME WEEK BOARD

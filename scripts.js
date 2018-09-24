@@ -60,7 +60,7 @@ function loadNewPost() {
     }
     ref.once('value').then(function(snapshot){
       snapshot.forEach(function(childSnapshot){
-        document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score * -1));
+        document.getElementById("post-list").appendChild(returnNewPost(childSnapshot.val().content,childSnapshot.val().score * -1,childSnapshot.key));
           if (mode==0) return true;
 
       })
@@ -72,7 +72,7 @@ function loadNewPost() {
 
 }
 
-function returnNewPost(mainText, score){
+function returnNewPost(mainText, score, childSnapshotKey){
   var listNode = document.createElement("LI");
   listNode.classList.add("post")
   var divNode = document.createElement("DIV");
@@ -87,8 +87,8 @@ function returnNewPost(mainText, score){
   var smallDivOne = document.createElement("DIV");
   smallDivOne.classList.add("row");
   smallDivOne.classList.add("justify-content-center");
-  var upvoteLink = document.createElement("A");
-  upvoteLink.href = "javascript:upvote()";
+  var upvoteLink = document.createElement("BUTTON");
+  upvoteLink.onclick = function() {upvote(childSnapshotKey)};
   var upvoteImage = document.createElement("IMG");
   upvoteImage.src = "upArrow.png";
   upvoteImage.width = 40;
@@ -109,8 +109,8 @@ function returnNewPost(mainText, score){
   var smallDivThree = document.createElement("DIV");
   smallDivThree.classList.add("row");
   smallDivThree.classList.add("justify-content-center");
-  var downvoteLink = document.createElement("A");
-  downvoteLink.href = "javascript:downvote()";
+  var downvoteLink = document.createElement("BUTTON");
+  downvoteLink.onclick = function () {downvote(childSnapshotKey)};
   var downvoteImage = document.createElement("IMG");
   downvoteImage.src = "downArrow.png";
   downvoteImage.width = 40;
@@ -127,6 +127,21 @@ function returnNewPost(mainText, score){
   return listNode;
 }
 
+function upvote(childSnapshotKey){
+  var ref = firebase.database().ref('posts/' + childSnapshotKey + '/score');
+  ref.transaction(function(score) {
+    // If node/clicks has never been set, currentRank will be `null`.
+    return score - 1;
+  });
+}
+
+function downvote(childSnapshotKey){
+  var ref = firebase.database().ref('posts/'+ childSnapshotKey + '/score');
+  ref.transaction(function(score) {
+    // If node/clicks has never been set, currentRank will be `null`.
+    return score + 1;
+  });
+}
 
 function infiniteScroll() {
   //alert("Pressed!");
