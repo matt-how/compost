@@ -3,7 +3,7 @@
 -Add comment button
 -Add comments
 -Make user logins work (big step)
--Add functionality to upvote/downvote buttons
+-Improve functionality to upvote/downvote buttons
 -Background poll for postcount so "new" tab can count
 
 #Cameron
